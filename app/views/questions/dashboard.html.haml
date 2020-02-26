@@ -1,0 +1,115 @@
+.container{:id => "dashboard"}
+    %br
+    .container-header
+        %h1{:id=>"dash"} Welcome to DashBoard
+    %br
+    .card
+        .card-header
+            %h5{:class=>"card-title"} Patient Profile
+        .card-body
+            .row
+                .col-8
+                    %h6 Name : #{@patient.name}
+                    %h6 Age in Years : #{@patient.age}
+                    %h6 MRN : #{@patient.mrn}
+                    %br
+
+                        
+    %br    
+    .card
+        .card-header
+            %h5{:class=>"card-title"}Current Stage of Readiness
+        .card-body
+            %table.table.table-bordered.table-hover
+                %thead
+                    %tr{:id =>"table-label"}
+                        %th{:scope => "col"}Dashboard
+                        %th{:colspan =>"5",:id=>"col_dash"}Stages of Readiness
+                    %tr
+                        %th{:scope => "col"} 
+                        %th{:scope => "col"} Dont Think Treatment is needed
+                        %th{:scope => "col"} Not Thinking about / Decided Against Treament
+                        %th{:scope => "col"} Thinking about Treatment
+                        %th{:scope => "col"} Active Treatment
+                %tbody
+                    %tr
+                        %th{:scope => "row"} Age>=70y
+                        %td
+                            - if @User_stage == 1
+                                = @User_age
+                        %td
+                            - if @User_stage == 2
+                                = @User_age
+                        %td
+                            - if @User_stage == 3
+                                = @User_age
+                        %td
+                            - if @User_stage == 4
+                                = @User_age
+                    %tr
+                        %th{:scope => "row"} High Perceived Fx Risk
+                        %td
+                            - if @User_stage == 1
+                                = @User_risk
+                        %td
+                            - if @User_stage == 2
+                                = @User_risk
+                        %td
+                            - if @User_stage == 3
+                                = @User_risk
+                        %td
+                            - if @User_stage == 4
+                                = @User_risk
+                    %tr
+                        %th{:scope => "row"} Inadequate Literacy
+                        %td
+                            - if @User_stage == 1
+                                = @User_literacy
+                        %td
+                            - if @User_stage == 2
+                                = @User_literacy
+                        %td
+                            - if @User_stage == 3
+                                = @User_literacy
+                        %td
+                            - if @User_stage == 4
+                                = @User_literacy
+                    %tr
+                        %th{:scope => "row"} High Trust for Medication
+                        %td
+                            - if @User_stage == 1
+                                = @User_trust
+                        %td
+                            - if @User_stage == 2
+                                = @User_trust
+                        %td
+                            - if @User_stage == 3
+                                = @User_trust
+                        %td
+                            - if @User_stage == 4
+                                = @User_trust
+                    %tr
+                        %th{:scope => "row"} Receipt of Medication Information
+                        %td
+                            - if @User_stage == 1
+                                = @User_priorinfo
+                        %td
+                            - if @User_stage == 2
+                                = @User_priorinfo
+                        %td
+                            - if @User_stage == 3
+                                = @User_priorinfo
+                        %td
+                            - if @User_stage == 4
+                                = @User_priorinfo
+    %br                    
+    .card
+        .card-header
+            %h5{:class=>"card-title"} Counseling Points
+        .card-body
+            - @counsel_points[@stage].each_with_index do |cp, index|
+                %p #{index+1}) #{cp}
+    %br
+    .container-footer
+        = link_to 'Back to List', '/login', :class => "dash btn btn-danger btn-lg"
+    %br
