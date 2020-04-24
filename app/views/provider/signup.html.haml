@@ -23,6 +23,8 @@
                   %input#inputPassword.form-control{:placeholder => "Password", :required => "", :type => "password"}/
                 
                 
-                %button.btn.btn-lg.btn-primary{:type => "submit"} Sign Up
-                %button.btn.btn-lg.btn-primary{:type => "button"} Cancel
+                // %button.btn.btn-lg.btn-primary{:type => "submit"} Sign Up
+                = link_to 'Confirm Sign Up',root_path  ,:class => "btn btn-primary btn-lg"
+                = link_to 'Cancel',root_path  ,:class => "btn btn-primary btn-lg"
+                // %button.btn.btn-lg.btn-primary{:type => "button"} Cancel
                 
