@@ -1,0 +1,28 @@
+.container-fluid.bg-image
+  .row.no-gutter
+    
+     
+    .col-md-8.col-lg-6
+      .login.d-flex.align-items-center.py-5
+        .container
+          .row
+            .col-md-9.col-lg-8.mx-auto
+              %h3.login-heading.mb-4 Welcome Sign Up!
+              %form{:action => "/questions", :method => "GET"}
+                %label{:for => "inputLname"} Last Name
+                .form-label-group
+                  %input#inputLname.form-control{:autofocus => "", :placeholder => "Last Name", :required => "", :type => "text"}/
+                %label{:for => "inputLname"} First Name
+                .form-label-group
+                  %input#inputLname.form-control{:autofocus => "", :placeholder => "First Name", :required => "", :type => "text"}/
+                %label{:for => "inputEmail"} Email address
+                .form-label-group
+                  %input#inputEmail.form-control{:autofocus => "", :placeholder => "Email address", :required => "", :type => "email"}/
+                %label{:for => "inputPassword"} Password  
+                .form-label-group
+                  %input#inputPassword.form-control{:placeholder => "Password", :required => "", :type => "password"}/
+                
+                
+                %button.btn.btn-lg.btn-primary{:type => "submit"} Sign Up
+                %button.btn.btn-lg.btn-primary{:type => "button"} Cancel
+                
