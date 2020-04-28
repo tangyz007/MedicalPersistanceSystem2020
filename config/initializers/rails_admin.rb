@@ -68,7 +68,7 @@ RailsAdmin.config do |config|
     end
     
     delete
-    show_in_app
+    # show_in_app
     
     # Set the custom approve action here
     approve do
