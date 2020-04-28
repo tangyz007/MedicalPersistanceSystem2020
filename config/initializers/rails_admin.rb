@@ -1,3 +1,31 @@
+# require Rails.root.join('lib', 'rails_admin_approve.rb')
+
+module RailsAdmin
+  module Config
+    module Actions
+      class Approve < RailsAdmin::Config::Actions::Base
+        RailsAdmin::Config::Actions.register(self)
+        register_instance_option :visible? do
+           true
+        end
+        register_instance_option :member do
+          true
+        end
+        register_instance_option :link_icon do
+          #FontAwesome Icons
+          'icon-check'
+        end
+        register_instance_option :controller do
+          Proc.new do
+            # Do whatever you want with @object
+          end
+        end
+      end
+    end 
+  end
+end
+
+
 RailsAdmin.config do |config|
   config.authorize_with do
     config.current_user_method(&:current_user)
@@ -33,9 +61,22 @@ RailsAdmin.config do |config|
     export
     bulk_delete
     show
-    edit
+    
+    # Make edit invisible for request model
+    edit do 
+      except "Request"
+    end
+    
     delete
     show_in_app
+    
+    # Set the custom approve action here
+    approve do
+      # Make it visible only for request model. You can remove this if you don't need.
+      visible do
+        bindings[:abstract_model].model.to_s == "Request"
+      end
+    end
 
     ## With an audit adapter, you can add:
     # history_index
