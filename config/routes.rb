@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :skip => [:registrations] 
   resources :questions
+  resources :request
   # resources :signup
   #get '/' => 'questions#login'
   get '/dashboard' => 'questions#dashboard'
   # get '/logining'=> 'questions#login'
-  match "provider/signup" => "provider#signup", as: :signup, via: [:get, :post]
-  get '/success'=> 'provider#success'
+  match "request/user" => "request#create", via: [:post]
+  # get '/success'=> 'provider#success'
   # post '/signup'=> 'provider#signup'
   
   # The priority is based upon order of creation: first created -> highest priority.

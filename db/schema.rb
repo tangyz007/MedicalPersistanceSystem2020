@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20191210075308) do
   create_table "requests", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
     t.string   "provider_id"
   end
 
