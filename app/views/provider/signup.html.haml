@@ -1,30 +1,44 @@
-.container-fluid.bg-image
-  .row.no-gutter
+// .container-fluid.bg-image
+//   .row.no-gutter
     
      
-    .col-md-8.col-lg-6
-      .login.d-flex.align-items-center.py-5
-        .container
-          .row
-            .col-md-9.col-lg-8.mx-auto
-              %h3.login-heading.mb-4 Welcome Sign Up!
-              %form{:action => "/questions", :method => "GET"}
-                %label{:for => "inputLname"} Last Name
-                .form-label-group
-                  %input#inputLname.form-control{:autofocus => "", :placeholder => "Last Name", :required => "", :type => "text"}/
-                %label{:for => "inputLname"} First Name
-                .form-label-group
-                  %input#inputLname.form-control{:autofocus => "", :placeholder => "First Name", :required => "", :type => "text"}/
-                %label{:for => "inputEmail"} Email address
-                .form-label-group
-                  %input#inputEmail.form-control{:autofocus => "", :placeholder => "Email address", :required => "", :type => "email"}/
-                %label{:for => "inputPassword"} Password  
-                .form-label-group
-                  %input#inputPassword.form-control{:placeholder => "Password", :required => "", :type => "password"}/
+//     .col-md-8.col-lg-6
+//       .login.d-flex.align-items-center.py-5
+//         .container
+//           .row
+//             .col-md-9.col-lg-8.mx-auto
+//               %h3.login-heading.mb-4 Welcome Sign Up!
+//               %form{:action => "/questions", :method => "GET"}
+//                 %label{:for => "provider"} Full Name
+//                 .form-label-group
+//                   %input#inputname.form-control{:autofocus => "", :placeholder => "Full Name", :required => "", :type => "text"}/
+//                 %label{:for => "provider"} Email address
+//                 .form-label-group
+//                   %input#inputemail.form-control{:autofocus => "", :placeholder => "Email address", :required => "", :type => "email"}/
+//                 %label{:for => "provider"} Password  
+//                 .form-label-group
+//                   %input#inputpassword.form-control{:placeholder => "Password", :required => "", :type => "password"}/
                 
                 
-                // %button.btn.btn-lg.btn-primary{:type => "submit"} Sign Up
-                = link_to 'Confirm Sign Up',root_path  ,:class => "btn btn-primary btn-lg"
-                = link_to 'Cancel',root_path  ,:class => "btn btn-primary btn-lg"
-                // %button.btn.btn-lg.btn-primary{:type => "button"} Cancel
+//                 // %button.btn.btn-lg.btn-primary{:type => "submit"} Sign Up
+//                 = link_to 'Confirm Sign Up',root_path  ,:class => "btn btn-primary btn-lg"
+//                 = link_to 'Cancel',root_path  ,:class => "btn btn-primary btn-lg"
+//                 // %button.btn.btn-lg.btn-primary{:type => "button"} Cancel
                 
+%h2 Welcome Sign Up
+
+= form_tag signup_path do
+
+  = label :provider, :name, 'Full Name:'
+  = text_field :provider, :name
+
+  = label :provider, :email, 'Email:'
+  = text_field :provider, :email
+
+  = label :provider, :password, 'Password:'
+  // = password_field_tag :provider
+  = password_field_tag :provider
+  
+  = submit_tag 'Submit', :class => 'btn btn-primary btn-lg'
+  = link_to 'Cancel',root_path  ,:class => "btn btn-primary btn-lg"
+  
