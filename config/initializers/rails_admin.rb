@@ -24,19 +24,16 @@ module RailsAdmin
             # Do whatever you want with @object
             # Get all selected rows
             @objects = list_entries(@model_config, :create)
-            # print("this is where i wanna see!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-            # print("++++++++++++++",request.params,"++++++++++++++")
-            provider = Request.find_by(id: request.params["id"])
-            provider_email = provider.email
-            user = User.find_by(email:provider_email)
-            user.update(provider: true)
-            provider.destroy
- 
-            # Update field published to true
+            
+            # Do the update for each
             @objects.each do |object|
               # object.update_attribute(:published, true)
+              provider = Request.find_by(id: request.params["bulk_ids"])
+              provider_email = provider.email
+              user = User.find_by(email:provider_email)
+              user.update(provider: true)
+              provider.destroy
             end
- 
  
             flash[:success] = "#{@model_config.label} successfully approved."
  
@@ -47,7 +44,6 @@ module RailsAdmin
     end 
   end
 end
-
 
 RailsAdmin.config do |config|
   config.authorize_with do
