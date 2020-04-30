@@ -27,3 +27,12 @@ en:
     actions:
       approve:
         menu: "Approve"
+
+en:
+  admin:
+    actions:
+      bulk_update_category:
+        title: Bulk approve category
+        breadcrumb: Bulk Approve
+        menu: Bulk approve category
+        bulk_link: Approve category for selected %{model_label_plural}

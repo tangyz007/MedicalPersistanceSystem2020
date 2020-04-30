@@ -8,6 +8,9 @@ module RailsAdmin
         register_instance_option :visible? do
            true
         end
+        register_instance_option :bulkable? do
+          true
+        end
         register_instance_option :member do
           true
         end
@@ -18,6 +21,18 @@ module RailsAdmin
         register_instance_option :controller do
           Proc.new do
             # Do whatever you want with @object
+            # Get all selected rows
+            @objects = list_entries(@model_config, :create)
+ 
+            # Update field published to true
+            @objects.each do |object|
+              # object.update_attribute(:published, true)
+            end
+ 
+            flash[:success] = "#{@model_config.label} successfully approved."
+ 
+            # redirect_to back_or_index
+            redirect_to "/admin/request"
           end
         end
       end
