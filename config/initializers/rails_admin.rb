@@ -1,5 +1,3 @@
-# require Rails.root.join('lib', 'rails_admin_approve.rb')
-
 module RailsAdmin
   module Config
     module Actions
@@ -14,6 +12,9 @@ module RailsAdmin
         register_instance_option :member do
           true
         end
+        # register_instance_option :http_methods do
+        #   [:delete,:post]
+        # end
         register_instance_option :link_icon do
           #FontAwesome Icons
           'icon-check'
@@ -31,7 +32,6 @@ module RailsAdmin
  
             flash[:success] = "#{@model_config.label} successfully approved."
  
-            # redirect_to back_or_index
             redirect_to "/admin/request"
           end
         end
