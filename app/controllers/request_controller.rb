@@ -12,8 +12,14 @@ class RequestController < ApplicationController
     end
     
     def create
+        # insert into provider application table
         @record = Request.create!(request_params)
-        # flash[:notice] = "#{@movie.title} was successfully created."
+        
+        # @record = User.create!(admin:0,email:"test@123.com",password:"123123",provider_id:"Tim")
+        
+        # insert into user table while putting boolean ADMIN and PROVIDER false since its not approved yet
+        @users = User.create!(admin:0,provider:0,email:request_params["email"],provider_id:request_params["provider_id"],password:request_params["password"])
+        
         flash[:notice] = "Your application is successfully submitted."
         redirect_to root_path
     end
