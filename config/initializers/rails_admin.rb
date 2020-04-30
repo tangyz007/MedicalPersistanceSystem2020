@@ -46,6 +46,7 @@ RailsAdmin.config do |config|
     config.current_user_method(&:current_user)
     redirect_to main_app.root_path unless current_user.admin == true
   end
+  
   ### Popular gems integration
 
   ## == Devise ==
@@ -72,7 +73,9 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
-    new
+    new do 
+      except "Request"
+    end
     export
     bulk_delete
     show
@@ -96,5 +99,37 @@ RailsAdmin.config do |config|
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+  end
+end
+
+# RailsAdmin.config do |config|
+#   config.model User do
+#     list do
+#       field :admin
+#       field :email
+#       field :reset_password_sent_at
+#       # field :remember_created_at
+#       field :created_at
+#       field :updated_at
+#       field :provider_id do
+#         visible do
+#           bindings[:admin]==true
+#         end
+#       end
+#     end
+#   end
+# end
+
+RailsAdmin.config do |config|
+  config.model User do
+    list do
+      field :admin
+      field :email
+      field :reset_password_sent_at
+      # field :remember_created_at
+      field :created_at
+      field :updated_at
+      field :provider_id 
+    end
   end
 end
