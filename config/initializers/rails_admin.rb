@@ -24,11 +24,19 @@ module RailsAdmin
             # Do whatever you want with @object
             # Get all selected rows
             @objects = list_entries(@model_config, :create)
+            # print("this is where i wanna see!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+            # print("++++++++++++++",request.params,"++++++++++++++")
+            provider = Request.find_by(id: request.params["id"])
+            provider_email = provider.email
+            user = User.find_by(email:provider_email)
+            user.update(provider: true)
+            provider.destroy
  
             # Update field published to true
             @objects.each do |object|
               # object.update_attribute(:published, true)
             end
+ 
  
             flash[:success] = "#{@model_config.label} successfully approved."
  
@@ -124,6 +132,7 @@ RailsAdmin.config do |config|
   config.model User do
     list do
       field :admin
+      field :provider
       field :email
       field :reset_password_sent_at
       # field :remember_created_at
