@@ -17,7 +17,7 @@
     %strong Age:
     = @question.age
   %p
-    %strong Compared to women your age, how would you rate your own risk of fraturing or breaking a bone?:
+    %strong Compared to women your age, how would you rate your own risk of fracturing or breaking a bone?:
     = ("Much lower" if @question.question2==1)
     = ("A little lower" if @question.question2==2)
     = ("About the same" if @question.question2==3)
@@ -31,7 +31,7 @@
     = ("Quite a bit" if @question.question3==4)
     = ("Extremely" if @question.question3==5)
   %p
-    %strong People get information about osteoporosis medication from different sources. Have you recieved information about possible osteoporosis medication in past year?:
+    %strong People get information about osteoporosis medication from different sources. Have you received information about possible osteoporosis medications in the past year?:
     = ("No" if @question.question4==false)
     = ("Yes" if @question.question4==true)
   %p
@@ -49,7 +49,7 @@
     = ("Agree" if @question.question52==4)
     = ("Strongly Agree" if @question.question52==5)
   %p
-    %strong Doctors of often give medication when advice would be better:
+    %strong Doctors often give medication when advice would be better:
     = ("Strongly Disagree" if @question.question53==1)
     = ("Disagree" if @question.question53==2)
     = ("Neutral" if @question.question53==3)
@@ -77,13 +77,13 @@
     = ("Agree" if @question.question56==4)
     = ("Strongly Agree" if @question.question56==5)
   %p
-    %strong Please choose the one statement that best reflects your feelings about recieving medicines now:
-    = ("I do not think I need treatment for osteoporosis" if @question.question6==1)
-    = ("I am aware that there are treatments available for my osteoporosis, but I have never thought seriously about using these medications" if @question.question6==2)
-    = ("I have considered using or have previously used osteoporosis medication, but I have decided against taking it" if @question.question6==3)
-    = ("I am currently considering the use of osteoporosis medication, but I have not made up my mind" if @question.question6==4)
-    = ("I have decided to use osteoporosis medication, but I have not yet started taking anything" if @question.question6==5)
-    = ("I have started medication for osteoporosis" if @question.question6==5)
+    %strong Please choose the one statement that best reflects your feelings about receiving osteoporosis medicines now:
+    = ("I do not think I need treatment for osteoporosis." if @question.question6==1)
+    = ("I am aware that there are treatments available for my osteoporosis, but I have never thought seriously about using these medications." if @question.question6==2)
+    = ("I have considered using or have previously used osteoporosis medication, but I have decided against taking it." if @question.question6==3)
+    = ("I am currently considering the use of osteoporosis medication, but I have not made up my mind." if @question.question6==4)
+    = ("I have decided to use osteoporosis medication, but I have not yet started taking anything." if @question.question6==5)
+    = ("I have started medication for osteoporosis." if @question.question6==5)
   
   %br/
   - if not user_signed_in?

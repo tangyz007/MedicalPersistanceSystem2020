@@ -18,18 +18,18 @@
     %br    
     .card
         .card-header
-            %h5{:class=>"card-title"}Current Stage of Readiness
+            %h5{:class=>"card-title"}Osteoporosis Treatment Initiation Counseling Dashboard
         .card-body
             %table.table.table-bordered.table-hover
                 %thead
                     %tr{:id =>"table-label"}
-                        %th{:scope => "col"}Dashboard
-                        %th{:colspan =>"5",:id=>"col_dash"}Stages of Readiness
+                        %th{:scope => "col"}Readiness Indicators
+                        %th{:colspan =>"5",:id=>"col_dash"}Readiness Stage
                     %tr
                         %th{:scope => "col"} 
-                        %th{:scope => "col"} Dont Think Treatment is needed
-                        %th{:scope => "col"} Not Thinking about / Decided Against Treament
-                        %th{:scope => "col"} Thinking about Treatment
+                        %th{:scope => "col"} Don't Think Treatment is Needed
+                        %th{:scope => "col"} Not Thinking About / Decided Against Treament
+                        %th{:scope => "col"} Thinking About Treatment
                         %th{:scope => "col"} Active Treatment
                 %tbody
                     %tr
@@ -47,7 +47,7 @@
                             - if @User_stage == 4
                                 = @User_age
                     %tr
-                        %th{:scope => "row"} High Perceived Fx Risk
+                        %th{:scope => "row"} Lower Perceived Fracture Risk
                         %td
                             - if @User_stage == 1
                                 = @User_risk
@@ -61,7 +61,7 @@
                             - if @User_stage == 4
                                 = @User_risk
                     %tr
-                        %th{:scope => "row"} Inadequate Literacy
+                        %th{:scope => "row"} Inadequate Health Literacy
                         %td
                             - if @User_stage == 1
                                 = @User_literacy
@@ -75,7 +75,7 @@
                             - if @User_stage == 4
                                 = @User_literacy
                     %tr
-                        %th{:scope => "row"} High Trust for Medication
+                        %th{:scope => "row"} Lower Trust for Medication
                         %td
                             - if @User_stage == 1
                                 = @User_trust
@@ -89,7 +89,7 @@
                             - if @User_stage == 4
                                 = @User_trust
                     %tr
-                        %th{:scope => "row"} Receipt of Medication Information
+                        %th{:scope => "row"} Not Received Medication Information in Past Year
                         %td
                             - if @User_stage == 1
                                 = @User_priorinfo
@@ -105,7 +105,7 @@
     %br                    
     .card
         .card-header
-            %h5{:class=>"card-title"} Counseling Points
+            %h5{:class=>"card-title"} Counseling Strategy
         .card-body
             - @counsel_points[@stage].each_with_index do |cp, index|
                 %p #{index+1}) #{cp}
