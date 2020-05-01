@@ -1,3 +1,4 @@
+
 module RailsAdmin
   module Config
     module Actions
@@ -69,12 +70,15 @@ module RailsAdmin
             flash[:success] = "#{@model_config.label} successfully approved."
  
             redirect_to "/admin/request"
+
+
           end
         end
       end
     end 
   end
 end
+
 
 
 module RailsAdmin
@@ -190,6 +194,7 @@ module RailsAdmin
   end
 end
 
+
 RailsAdmin.config do |config|
   config.authorize_with do
     config.current_user_method(&:current_user)
@@ -256,6 +261,7 @@ RailsAdmin.config do |config|
       except "Request"
     end
     
+
     delete do 
       except "Request"
     end
@@ -276,6 +282,7 @@ RailsAdmin.config do |config|
     #     bindings[:abstract_model].model.to_s == "Request"
     #   end
     # end
+
 
     ## With an audit adapter, you can add:
     # history_index

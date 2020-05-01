@@ -2,7 +2,7 @@
   %p.alert.alert-warning= flash[:notice]
   // %p#notice= notice
   %br/
-  %h2.float-left{style: 'color: #79589f;'}Patient Panel
+  %h2.float-left{style: 'color: #79589f;'}List of Patients 
   - if current_user
     = link_to 'Logout', destroy_user_session_path, method: :delete , :class => "sticky-top float-right btn btn-outline-danger",:id => "right"
     %br/
@@ -24,7 +24,7 @@
         %th MRN
         %th Age
       
-        %th{:colspan => "3"} Patient Responses
+        %th{:colspan => "3"} Actions
     %tbody
       - @questions.each do |question|
         %tr

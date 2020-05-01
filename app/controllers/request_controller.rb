@@ -12,6 +12,7 @@ class RequestController < ApplicationController
     end
     
     def create
+
         if request_params["password"].length < 6 || request_params["password"] == nil
             render html: "<h1>Password can't be blank or less than 6 digits, Please return to previous page to correct! </h1>".html_safe
         elsif request_params["email"] !~ /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
@@ -24,5 +25,6 @@ class RequestController < ApplicationController
             redirect_to '/success'
             return 
         end
+
     end
 end
