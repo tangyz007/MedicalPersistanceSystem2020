@@ -8,7 +8,6 @@ gem 'rails', '4.2.10'
 # gem 'pg', '~> 0.21'
 #gem 'sqlite3'
 gem 'sqlite3', '~> 1.3.6'
-gem 'tzinfo-data'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,7 +28,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'sprockets-rails', '~> 3.2'
 gem 'bootstrap', '~> 4.3.1'
-
+gem 'tzinfo-data'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

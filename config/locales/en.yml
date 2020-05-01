@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+
+en:  
+  admin:
+    actions:
+      approve:
+        menu: "Approve"
