@@ -1,0 +1,9 @@
+.container
+  %p.alert.alert-warning= flash[:notice]
+  // %p#notice= notice
+  %br/
+  %h2.float-left{style: 'color: #79589f;'}Your application is not yet approved! Please wait and make sure to log out!
+  - if current_user
+    = link_to 'Logout', destroy_user_session_path, method: :delete , :class => "sticky-top float-right btn btn-outline-danger",:id => "right"
+    %br/
+  %br/

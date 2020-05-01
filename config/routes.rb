@@ -5,9 +5,17 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :skip => [:registrations] 
   resources :questions
+  resources :request
+  # resources :signup
   #get '/' => 'questions#login'
   get '/dashboard' => 'questions#dashboard'
-
+  get '/unsuccess' => 'home#unsuccess'
+  # get '/logining'=> 'questions#login'
+  match "request/user" => "request#create", via: [:post]
+  match "admin/request" => "admin#request", via: [:post]
+  get '/success' => 'request#success'
+  # get '/success'=> 'provider#success'
+  # post '/signup'=> 'provider#signup'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -68,7 +76,6 @@ Rails.application.routes.draw do
   root 'main#index'
   get '/users/sign_out/' =>'sessions#destroy', :as => :logout
   #logout 'sessions#destroy'
-
   #root to: "controller#action"
   #root questions_path
 end

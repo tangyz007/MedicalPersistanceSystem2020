@@ -21,3 +21,28 @@
 
 en:
   hello: "Hello world"
+
+en:  
+  admin:
+    actions:
+      approve:
+        title: "Approve"
+        menu: "Approve"
+        breadcrumb: "Approve"
+        
+      bulk_approve:
+        title: "Approve"
+        menu: "Approve"
+        breadcrumb: "Approve"
+        bulk_link: Approve selected %{model_label_plural}
+      
+      disapprove:
+        title: "Disapprove"
+        menu: "Disapprove"
+        breadcrumb: "Disapprove"
+        
+      bulk_disapprove:
+        title: "Disapprove"
+        menu: "Disapprove"
+        breadcrumb: "Disapprove"
+        bulk_link: Disapprove selected %{model_label_plural}

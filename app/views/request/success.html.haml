@@ -1,0 +1,8 @@
+.container
+  %p.alert.alert-warning= flash[:notice]= "Your application is successfully submitted."
+  // %p#notice= notice
+  %br/
+  %h2.float-left{style: 'color: #79589f;'}Your application is successfully submitted!
+  = link_to 'Home', root_path, :class => "sticky-top float-right btn btn-outline-danger",:id => "right"
+
+  %br/
