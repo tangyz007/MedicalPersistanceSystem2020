@@ -12,15 +12,17 @@ class RequestController < ApplicationController
     end
     
     def create
-        # insert into provider application table
-        @record = Request.create!(request_params)
-        
-        # @record = User.create!(admin:0,email:"test@123.com",password:"123123",provider_id:"Tim")
-        
-        # insert into user table while putting boolean ADMIN and PROVIDER false since its not approved yet
-        @users = User.create!(admin:0,provider:0,email:request_params["email"],provider_id:request_params["provider_id"],password:request_params["password"])
-        
-        flash[:notice] = "Your application is successfully submitted."
-        redirect_to root_path
+        if request_params["password"].length < 6 || request_params["password"] == nil
+            render html: "<h1>Password can't be blank or less than 6 digits, Please return to previous page to correct! </h1>".html_safe
+        elsif request_params["email"] !~ /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
+            render html: "<h1>Email is invalid! Please return to previous page to correct! </h1>".html_safe
+        elsif User.find_by(email:request_params["email"])
+            render html: "<h1>Email has already exist, please wait for approval or use another one. </h1>".html_safe
+        else
+            @record = Request.create!(request_params)
+            @users = User.create!(admin:0,provider:0,email:request_params["email"],provider_id:request_params["provider_id"],password:request_params["password"])
+            redirect_to '/success'
+            return 
+        end
     end
 end

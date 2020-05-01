@@ -283,24 +283,6 @@ RailsAdmin.config do |config|
   end
 end
 
-# RailsAdmin.config do |config|
-#   config.model User do
-#     list do
-#       field :admin
-#       field :email
-#       field :reset_password_sent_at
-#       # field :remember_created_at
-#       field :created_at
-#       field :updated_at
-#       field :provider_id do
-#         visible do
-#           bindings[:admin]==true
-#         end
-#       end
-#     end
-#   end
-# end
-
 RailsAdmin.config do |config|
   config.model User do
     list do
@@ -308,7 +290,6 @@ RailsAdmin.config do |config|
       field :provider
       field :email
       field :reset_password_sent_at
-      # field :remember_created_at
       field :created_at
       field :updated_at
       field :provider_id 

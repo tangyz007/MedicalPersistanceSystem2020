@@ -9,8 +9,7 @@
   = text_field :request, :email
 
   = label :password, 'Password:'
-  = password_field :request, :password
-  
+  = password_field :request, :password, placeholder: "Minimum 6 characters"
   
   = submit_tag 'Submit', :class => 'btn btn-primary btn-lg'
   = link_to 'Cancel',root_path  ,:class => "btn btn-primary btn-lg"

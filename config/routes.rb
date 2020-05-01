@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # get '/logining'=> 'questions#login'
   match "request/user" => "request#create", via: [:post]
   match "admin/request" => "admin#request", via: [:post]
+  get '/success' => 'request#success'
   # get '/success'=> 'provider#success'
   # post '/signup'=> 'provider#signup'
   
