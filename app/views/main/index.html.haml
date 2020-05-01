@@ -1,15 +1,15 @@
 .container-fluid.bg-image
   .row.no-gutter
-    .d-none.d-md-flex.col-md-4.col-lg-6
+    .col-lg-10
+    .col-lg-2.col-xs-4
+      .container
+        = link_to 'Login', '/login', :class => "btn btn-primary btn-lg",:id => "center"
+  .row.no-gutter
+    .col-lg-2
+    .col-lg-8.col-xs-4
       .login.d-flex.align-items-center.py-5
         .container
-          %h3.text-center.login-heading.mb-4 How aware are you about Osteoporosis ? 
-          %h3.text-center.login-heading.mb-4 Osteoporosis affects 200 million people worldwide. Women are more prone to osteoporosis. 1 out of 5 women receive an evaluation for osteoporosis. From this 1 out of 2 women are prescribed medication. 
-          %h3.text-center.login-heading.mb-4 Take our Survey. Then your provider will receive this information and will help better guide you.
-          = link_to 'Take New Survey', new_question_path, :class => "btn btn-primary btn-lg",:id => "center"
-          
-    .d-none.d-md-flex.col-md-4.col-lg-6
-      .login.d-flex.align-items-center.py-5
-        .container
-          = link_to 'Admin/Provider Login', login_path, :class => "btn btn-primary btn-lg",:id => "center"
-          // = link_to 'Sign up for provider', '/signup', :class => "btn btn-primary btn-lg"
+          %h3.text-center.login-heading.mb-4 Your health care providers would like to better understand your beliefs about osteoporosis and its treatment
+          %h3.text-center.login-heading.mb-4 Please take the 2-minute survey by clicking on the link “Take the Survey” provided below
+          %h3.text-center.login-heading.mb-4 After completing the survey, your health care provider will receive your answers to help guide your care
+          = link_to 'Take the Survey', new_question_path, :class => "btn btn-primary btn-lg",:id => "center"
