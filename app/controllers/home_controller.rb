@@ -1,12 +1,20 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
-    if current_user.admin == true
+    if (current_user.admin == true)
       redirect_to '/admin'
+    elsif current_user.provider == false
+      redirect_to '/unsuccess'
     end
+    # else
+    #   redirect_to user_session_path
+    # if current_user.admin == true
+    #   redirect_to '/admin'
+    # elsif  current_user.provider == false
+    #   redirect_to '/users/sign_out/'
+    # end
     # initialize_search
     # handle_search_name
-    
     session[:search_name] ||= params[:search_name]
     if session[:search_name]
       @questions = Question.where(user_id: current_user.provider_id)

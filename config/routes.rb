@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # resources :signup
   #get '/' => 'questions#login'
   get '/dashboard' => 'questions#dashboard'
+  get '/unsuccess' => 'home#unsuccess'
   # get '/logining'=> 'questions#login'
   match "request/user" => "request#create", via: [:post]
   match "admin/request" => "admin#request", via: [:post]
@@ -74,7 +75,6 @@ Rails.application.routes.draw do
   root 'main#index'
   get '/users/sign_out/' =>'sessions#destroy', :as => :logout
   #logout 'sessions#destroy'
-
   #root to: "controller#action"
   #root questions_path
 end
