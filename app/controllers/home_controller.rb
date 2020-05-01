@@ -15,10 +15,7 @@ class HomeController < ApplicationController
     # end
     # initialize_search
     # handle_search_name
-<<<<<<< HEAD
 
-=======
->>>>>>> TeamTang
     session[:search_name] ||= params[:search_name]
     if session[:search_name]
       @questions = Question.where(user_id: current_user.provider_id)
