@@ -29,11 +29,7 @@ ActiveRecord::Schema.define(version: 20191210075308) do
     t.datetime "updated_at", null: false
     t.string   "user_id"
   end
-  create_table "requests", force: :cascade do |t|
-    t.string "email",              default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "provider_id"
-  end
+  
   create_table "users", force: :cascade do |t|
     t.boolean  "admin"
     t.boolean  "provider",               default: false
