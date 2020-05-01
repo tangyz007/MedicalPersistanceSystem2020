@@ -32,18 +32,18 @@ class QuestionsController < ApplicationController
     
     # Age polarity
     @User_age = @patient.age >= 70 ? "+" : "-"
-    # Risk of fracturing polarity
-    @User_risk = (@patient.question2 == 4 or @patient.question2 == 5) ? "+" : "-"
+    # Lower Risk of fracturing polarity
+    @User_risk = (@patient.question2 == 4 or @patient.question2 == 5) ? "-" : "+"
     # Inadequate Literacy Polarity
     @User_literacy = (@patient.question3 == 4 or @patient.question3 == 5) ? "-" : "+"
-    # Receipt of medication information polarity
-    @User_priorinfo = @patient.question4 == true ? "+" : "-"
-    # Trust for Medication polarity
+    # Not Received Medication Information in Past Year
+    @User_priorinfo = @patient.question4 == true ? "-" : "+"
+    # Lower Trust for Medication polarity
     trust_score = (@patient.question51 + @patient.question52 + \
                     @patient.question53 + @patient.question54 + \
                     @patient.question55 + @patient.question56) / 6
     # opinion_score = opinion_total / 6
-    @User_trust = trust_score > 3.17 ? "-" : "+"
+    @User_trust = trust_score > 3.17 ? "+" : "-"
   end
   
   # GET /questions

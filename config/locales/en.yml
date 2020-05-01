@@ -26,6 +26,7 @@ en:
   admin:
     actions:
       approve:
+
         title: "Approve"
         menu: "Approve"
         breadcrumb: "Approve"
@@ -46,3 +47,4 @@ en:
         menu: "Disapprove"
         breadcrumb: "Disapprove"
         bulk_link: Disapprove selected %{model_label_plural}
+

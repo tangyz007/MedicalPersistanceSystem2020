@@ -1,15 +1,30 @@
-%h2 Welcome Sign Up
 
-= form_tag request_path do
 
-  = label :name, 'Full Name:'
-  = text_field :request, :provider_id
+.container-fluid.bg-image
+  .row.no-gutter
+    .col-md-8.col-lg-6
+      .login.d-flex.align-items-center.py-5
+        .container
+          .row
+            .col-md-9.col-lg-8.mx-auto
+              %h2.text-center.login-heading.mb-4 Welcome Sign Up
 
-  = label :email, 'Email:'
-  = text_field :request, :email
+              = form_tag request_path do
+                .form-label-group
+                  .field
+                    = label :name, 'Full Name:', class: "control-label"
+                    %br/
+                    = text_field :request, :provider_id, autofocus: true, class: "form-control", placeholder: "Your Name"
+                .form-label-group
+                  .field
+                    = label :email, 'Email:', class: "control-label"
+                    %br/
+                    = text_field :request, :email, autofocus: true, class: "form-control", id:"inputEmail", placeholder: "Email Address"
+                .form-label-group
+                  .field
+                    = label :password, 'Password:', class: "control-label", placeholder:"Minimum 6 characters"
+                    %br/
+                    = password_field :request, :password, class: "form-control", placeholder: "Password"
+                = submit_tag 'Submit', :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                = link_to 'Cancel',root_path  ,:class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
 
-  = label :password, 'Password:'
-  = password_field :request, :password, placeholder: "Minimum 6 characters"
-  
-  = submit_tag 'Submit', :class => 'btn btn-primary btn-lg'
-  = link_to 'Cancel',root_path  ,:class => "btn btn-primary btn-lg"
