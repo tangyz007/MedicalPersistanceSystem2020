@@ -35,9 +35,12 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     arel (6.0.4)
     autoprefixer-rails (9.7.1)
       execjs
+    backports (3.17.1)
     bcrypt (3.1.13)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
@@ -47,6 +50,14 @@ GEM
       sassc-rails (>= 2.0.0)
     builder (3.2.3)
     byebug (11.0.1)
+    capybara (3.32.1)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -56,6 +67,31 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.5)
+    cucumber (3.1.2)
+      builder (>= 2.1.2)
+      cucumber-core (~> 3.2.0)
+      cucumber-expressions (~> 6.0.1)
+      cucumber-wire (~> 0.0.1)
+      diff-lcs (~> 1.3)
+      gherkin (~> 5.1.0)
+      multi_json (>= 1.7.5, < 2.0)
+      multi_test (>= 0.1.2)
+    cucumber-core (3.2.1)
+      backports (>= 3.8.0)
+      cucumber-tag_expressions (~> 1.1.0)
+      gherkin (~> 5.0)
+    cucumber-expressions (6.0.1)
+    cucumber-rails (2.0.0)
+      capybara (>= 2.12, < 4)
+      cucumber (>= 3.0.2, < 4)
+      mime-types (>= 2.0, < 4)
+      nokogiri (~> 1.8)
+      railties (>= 4.2, < 7)
+    cucumber-rails-training-wheels (1.0.0)
+      cucumber-rails (>= 1.1.1)
+    cucumber-tag_expressions (1.1.1)
+    cucumber-wire (0.0.1)
+    database_cleaner (1.4.1)
     debug_inspector (0.0.3)
     devise (4.7.1)
       bcrypt (~> 3.0)
@@ -63,6 +99,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.3)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     dotenv (2.7.5)
@@ -75,6 +112,7 @@ GEM
     ffi (1.11.1-x64-mingw32)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
+    gherkin (5.1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.1.2)
@@ -132,6 +170,8 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.12.2)
+    multi_json (1.14.1)
+    multi_test (0.1.2)
     nested_form (0.3.2)
     netrc (0.11.0)
     nokogiri (1.10.4)
@@ -140,6 +180,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     popper_js (1.14.5)
+    public_suffix (4.0.4)
     rack (1.6.11)
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
@@ -188,6 +229,7 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     rdoc (4.3.0)
+    regexp_parser (1.7.0)
     remotipart (1.4.3)
     responders (2.4.1)
       actionpack (>= 4.2.0, < 6.0)
@@ -263,6 +305,8 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    xpath (3.2.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
@@ -272,6 +316,9 @@ DEPENDENCIES
   bootstrap (~> 4.3.1)
   byebug
   coffee-rails (~> 4.1.0)
+  cucumber-rails
+  cucumber-rails-training-wheels
+  database_cleaner (= 1.4.1)
   devise
   dotenv-rails
   haml-rails
@@ -290,3 +337,6 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
+
+BUNDLED WITH
+   1.17.3

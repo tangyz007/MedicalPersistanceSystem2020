@@ -18,21 +18,21 @@ Background: Sign up requests in database
 
 Scenario: submit sign up request correctly
   When I fill in "request_provider_id" with "Sam"
-  When I fill in "request_email" with "Sam@email.com"
+  When I fill in "inputEmail" with "Sam@email.com"
   When I fill in "request_password" with "Sam123"
   And I press "Submit"
   Then I should be on the submit success page
 
 Scenario: submit sign up request with password less than 6 characters (sad path)
   When I fill in "request_provider_id" with "Bob"
-  When I fill in "request_email" with "Bob@email.com"
+  When I fill in "inputEmail" with "Bob@email.com"
   When I fill in "request_password" with "B123"
   And I press "Submit"
   Then I should see "Password can't be blank or less than 6 digits, Please return to previous page to correct!"
 
 Scenario: submit sign up request with invalid email format (sad path)
   When I fill in "request_provider_id" with "Linda"
-  When I fill in "request_email" with "Linda.email.com"
+  When I fill in "inputEmail" with "Linda.email.com"
   When I fill in "request_password" with "Linda123"
   And I press "Submit"
   Then I should see "Email is invalid! Please return to previous page to correct!"
