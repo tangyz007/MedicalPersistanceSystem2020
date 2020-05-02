@@ -16,7 +16,7 @@ class RequestController < ApplicationController
             render html: "<h1>Password can't be blank or less than 6 digits, Please return to previous page to correct! </h1>".html_safe
         elsif request_params["email"] !~ /\A([\w+\-]\.?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
             render html: "<h1>Email is invalid! Please return to previous page to correct! </h1>".html_safe
-        elsif User.find_by(email:request_params["email"])
+        elsif Request.find_by(email:request_params["email"])
             render html: "<h1>Email has already exist, please wait for approval or use another one. </h1>".html_safe
         else
             @record = Request.create!(request_params)
