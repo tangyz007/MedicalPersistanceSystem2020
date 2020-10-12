@@ -26,7 +26,12 @@
                     = label :password, 'Password:', class: "control-label", placeholder:"Minimum 6 characters"
                     %br/
                     = password_field :request, :password, class: "form-control", placeholder: "Password"
+                .form-label-group
+                  .field
+                    = label :role, 'Role:', class: "control-label", placeholder:"Select Role"
                     %br/
+                    = select_tag "request[role]", options_for_select({ "Patient" => "patient", "Provider" => "provider"}, "patient"), class: "form-control"
+                  
                 = submit_tag 'Submit', :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                 %br/
                 = link_to 'Cancel',root_path  ,:class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
