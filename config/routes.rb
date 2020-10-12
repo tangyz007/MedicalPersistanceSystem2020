@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'provider/index'
+
+  get 'patient/index'
+
   devise_for :users
   get 'home/index'
   

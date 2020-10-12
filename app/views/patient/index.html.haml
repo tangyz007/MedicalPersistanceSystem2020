@@ -1,0 +1,5 @@
+%h1 Patient Portal Page#index
+%p Find me in app/views/patient/index.html.haml
+%p To be implemented.
+- if current_user
+    = link_to 'Logout', destroy_user_session_path, method: :delete , :class => "sticky-top float-right btn btn-outline-danger",:id => "left", :style => "z-index: 1"

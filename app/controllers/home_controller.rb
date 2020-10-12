@@ -3,8 +3,10 @@ class HomeController < ApplicationController
   def index
     if current_user.role == "admin"
       redirect_to '/admin'
-    else
-      redirect_to '/unsuccess'
+    elsif current_user.role == "provider"
+      redirect_to '/provider/index'
+    elsif current_user.role == "patient"
+      redirect_to '/patient/index'
     end
     # else
     #   redirect_to user_session_path
