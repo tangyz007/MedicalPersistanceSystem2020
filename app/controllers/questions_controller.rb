@@ -74,8 +74,10 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  
   # POST /questions
   # POST /questions.json
+  before_action :authenticate_user!
   def create
     @question = Question.new(question_params)
 

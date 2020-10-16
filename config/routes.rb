@@ -4,11 +4,10 @@ Rails.application.routes.draw do
 
   get 'patient/index'
 
-  devise_for :users
   get 'home/index'
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # devise_for :users, :skip => [:registrations] 
+  devise_for :users, :skip => [:registrations] 
   resources :questions
   resources :request
   # resources :signup
