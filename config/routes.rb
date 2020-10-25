@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'provider/index'
+
+  get 'patient/index'
+
   get 'home/index'
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

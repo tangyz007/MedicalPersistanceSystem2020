@@ -66,7 +66,7 @@ class QuestionsController < ApplicationController
     questionFile = File.read('config/questions.json')
     @questionsHash = JSON.parse(questionFile)
     @question = Question.new
-    @userList = User.where(admin: true) + User.where(provider: true)
+    @userList = User.where(role: "admin") + User.where(role: "provider")
     
   end
 
@@ -74,8 +74,10 @@ class QuestionsController < ApplicationController
   def edit
   end
 
+  
   # POST /questions
   # POST /questions.json
+  before_action :authenticate_user!
   def create
     @question = Question.new(question_params)
 

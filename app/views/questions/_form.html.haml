@@ -22,7 +22,7 @@
    
         = f.select(:user_id) do 
           - @userList.each do |l|
-            = content_tag(:option, l.provider_id, value: l.provider_id, :class => "form form-group form-control",:required => true )
+            = content_tag(:option, l.id, value: l.id, :class => "form form-group form-control",:required => true )
 
   %br/ 
   .row
