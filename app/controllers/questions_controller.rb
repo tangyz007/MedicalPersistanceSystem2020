@@ -80,7 +80,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
   def create
     @question = Question.new(question_params)
-
+    
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Response was successfully created.' }
@@ -124,6 +124,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:name,:user_id,:mrn, :age, :question2, :question3, :question4, :question51, :question52, :question53, :question54, :question55, :question56, :question6)
+      params.require(:question).permit(:name,:patient_id, :user_id,:mrn, :age, :question2, :question3, :question4, :question51, :question52, :question53, :question54, :question55, :question56, :question6)
     end
 end
