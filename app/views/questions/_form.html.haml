@@ -12,7 +12,7 @@
       .form-group
         = f.label :name,'Please enter your full name:',:class => "font-weight-bold"
         %br/
-        = f.text_field :name,:class => "form-control",:required => true, :disabled => true, :style=> "width:70% ;font-size: x-large"
+        = f.text_field :name, :value => current_user.full_name, :class => "form-control",:required => true, :disabled => true, :style=> "width:70% ;font-size: x-large"
   .row
     .col
       .form-group 
@@ -21,8 +21,8 @@
         //= f.text_field :user_id, :class => "form-control",:required => true
    
         = f.select(:user_id, [],{include_blank: "Select something"} ,{class: 'form form-group form-control', style:"width:70% ;font-size: x-large" }) do 
-          - @userList.each do |l|
-            = content_tag(:option, l.id, value: l.id, :required => true )
+          - @providerList.each do |l|
+            = content_tag(:option, l.full_name, value: l.id, :required => true )
 
   %br/ 
   .row

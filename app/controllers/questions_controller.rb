@@ -66,7 +66,7 @@ class QuestionsController < ApplicationController
     questionFile = File.read('config/questions.json')
     @questionsHash = JSON.parse(questionFile)
     @question = Question.new
-    @userList = User.where(role: "admin") + User.where(role: "provider")
+    @providerList = User.where(role: "provider")
     
   end
 
