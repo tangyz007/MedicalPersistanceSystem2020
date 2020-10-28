@@ -17,9 +17,10 @@ Background: Sign up requests in database
   And I am on the sign up page
 
 Scenario: submit sign up request correctly
-  When I fill in "request_provider_id" with "Sam"
+ When I fill in "request_provider_id" with "Sam"
   When I fill in "inputEmail" with "Sam@email.com"
   When I fill in "request_password" with "Sam123"
+  When I fill in "request_password_check" with "Sam123"
   And I press "Submit"
   Then I should be on the submit success page
 
