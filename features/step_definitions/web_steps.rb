@@ -42,6 +42,7 @@ When /^(.*) within (.*[^:]):$/ do |step, parent, table_or_string|
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
+  puts path_to(page_name)
   visit path_to(page_name)
 end
 
@@ -232,6 +233,8 @@ Then /^(?:|I )should be on (.+)$/ do |page_name|
   if current_path.respond_to? :should
     current_path.should == path_to(page_name)
   else
+    puts path_to(page_name)
+    puts current_path
     assert_equal path_to(page_name), current_path
   end
 end
