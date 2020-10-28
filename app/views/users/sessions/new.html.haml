@@ -17,7 +17,7 @@
                   .field
                     = f.label :password, class: "control-label", style: "font-size: x-large; font-weight: bold;"
                     %br/
-                    = f.password_field :password, autocomplete: "current-password", class: "form-control", id:"inputEmail", placeholder: "Password"
+                    = f.password_field :password, autocomplete: "current-password", class: "form-control", id:"inputPassword", placeholder: "Password"
                 - if devise_mapping.rememberable?
                   .text-center.custom-control.custom-checkbox.mb-3
                     .field
