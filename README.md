@@ -18,7 +18,9 @@ heroku login --interactive
 heroku keys:add
 heroku apps:create
 git push heroku master
-#here, if running on other branch then master, run following line instead
+```
+### here, if running on other branch then master, run following line instead
+```sh
 git push heroku [branch name]:master
 #as we currently on mingreng's branch, we will be using
 git push heroku [branch name]:master
@@ -40,8 +42,9 @@ For now, a short guild to set up postgresql on local
 Installation and set up:
 sudo apt-get install postgresql
 sudo apt-get install libpq-dev
-
-#to set up a password
+```
+### to set up a password
+```sh
 sudo -u postgres psql postgres
 psql (9.3.9)
 Type "help" for help.
@@ -49,15 +52,18 @@ Type "help" for help.
 postgres=# \password postgres
 #after setting up the password, use following to quit
 postgres=# \q
-
-#now we can install bundle without error
+```
+### now we can install bundle without error by run
+```sh
 bundle install
-
-#proceed to deploy this to local, first we need to initialize the db
-
+```
+### proceed to deploy this to local, first we need to initialize the db
+```sh
 sudo service postgresql start
 sudo service postgresql status
-#we use sudo -u postgres createuser [user name]
+```
+### we use sudo -u postgres createuser [user name]
+```sh
 sudo -u postgres createuser ubuntu
 $ sudo -u postgres psql postgres
 psql (9.3.9)
@@ -68,8 +74,9 @@ postgres=# ALTER USER ubuntu WITH password '[password]';
 ALTER ROLE
 postgres=# ALTER USER ubuntu CREATEDB;
 postgres=# \q
-
-#Now  we create this db in advance. It suppose to be done by rake db:migrate/ect but due to some privilege issue we have to run following commend
+```
+### Now  we create this db in advance. It suppose to be done by rake db:migrate/ect but due to some privilege issue we have to run following commend
+```sh
 #sudo -u postgres createdb [db name] --owner [user name]
 #to be precise, we will run
 sudo -u postgres createdb myapp_development --owner [user name]
