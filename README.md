@@ -7,10 +7,7 @@ git clone https://github.com/Siyangyang/MedicalPersistanceSystem2020.git
 rvm install 2.4.0
 rvm use 2.4.0
 ```
-```sh
-#As for 10/20/2020, checkout minreng’s branch by
-git checkout minreng
-```
+
 ## deployee to heroku
 ```sh
 sudo snap install heroku --classic
@@ -87,4 +84,11 @@ rake db:setup
 rake db:migrate
 rake db:seed
 rails server -b $IP -p $PORT
+```
+
+## remember to run following command after switching branch
+```sh
+rake db:setup
+rake db:migrate
+rake db:seed
 ```
