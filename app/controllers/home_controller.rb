@@ -1,10 +1,12 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
-    if (current_user.admin == true)
+    if current_user.role == "admin"
       redirect_to '/admin'
-    elsif current_user.provider == false
-      redirect_to '/unsuccess'
+    elsif current_user.role == "provider"
+      redirect_to '/provider/index'
+    elsif current_user.role == "patient"
+      redirect_to '/patient/index'
     end
     # else
     #   redirect_to user_session_path
@@ -18,13 +20,13 @@ class HomeController < ApplicationController
 
     session[:search_name] ||= params[:search_name]
     if session[:search_name]
-      @questions = Question.where(user_id: current_user.provider_id)
+      @questions = Question.where(user_id: current_user.id)
       # @questions = Question.where("name LIKE ?", "%#{session[:search_name]}%")
       @questions = @questions.where("lower(name) LIKE ?", "%#{session[:search_name]}%".downcase)
       session[:search_name] = nil    
             # @teams = @teams.where(code: @players.pluck(:team))
     else
-      @questions = Question.where(user_id: current_user.provider_id)
+      @questions = Question.where(user_id: current_user.id)
     end
     # @questions = Question.where(user_id: current_user.provider_id)
    

@@ -12,17 +12,18 @@
       .form-group
         = f.label :name,'Please enter your full name:',:class => "font-weight-bold"
         %br/
-        = f.text_field :name,:class => "form-control",:required => true
-
+        = f.hidden_field :patient_id, :value => current_user.id
+        = f.text_field :name, :value => current_user.full_name, :class => "form-control",:required => true, :readonly => "readonly", :style=> "width:70% ;font-size: x-large"
+  .row
     .col
-      .form-group
+      .form-group 
         = f.label :user_id,'Primary Provider',:class => "font-weight-bold"
         %br/
         //= f.text_field :user_id, :class => "form-control",:required => true
    
-        = f.select(:user_id) do 
-          - @userList.each do |l|
-            = content_tag(:option, l.provider_id, value: l.provider_id, :class => "form form-group form-control",:required => true )
+        = f.select(:user_id, [],{include_blank: "Select something"} ,{class: 'form form-group form-control', style:"width:70% ;font-size: x-large" }) do 
+          - @providerList.each do |l|
+            = content_tag(:option, l.full_name, value: l.id, :required => true )
 
   %br/ 
   .row
@@ -31,13 +32,13 @@
       .form-group
         = f.label :mrn,'Please enter your Medical Record Number',:class => "font-weight-bold"
         %br/
-        = f.text_field :mrn, :class => "form-control",:required => true, :maxlength => "10"
+        = f.text_field :mrn, :class => "form-control",:required => true, :maxlength => "10", :style=>"font-size: x-large" 
     .col
       .form-group
       
-        = f.label :age, 'Please enter your age (in years):',:class => "font-weight-bold"
+        = f.label :age, 'Please enter your age:',:class => "font-weight-bold"
         %br/
-        = f.number_field :age,:class => "form-control",:required => true, :min => 0 , :max => 199        
+        = f.number_field :age,:class => "form-control",:required => true, :min => 0 , :max => 100, :style=>"font-size: x-large"        
   %br/
   // .form-group
   //   = f.label :age, 'Please enter your age (in years):'
@@ -273,7 +274,7 @@
   .form-group#center
     
     
-    // = link_to 'Go Back', root_path, :class => "btn btn-danger"
+    = link_to 'Go Back', root_path, :class => "btn btn-danger"
     
-    = f.submit  'Submit Response', :class => "btn btn-success"
+    = f.submit  'Submit Response', :class => "btn btn-primary"
 

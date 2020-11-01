@@ -1,4 +1,4 @@
-.container-fluid.bg-image
+.container-fluid
   .row.no-gutter
     .col-md-2.col-lg-3
     .col-md-8.col-lg-6
@@ -6,23 +6,23 @@
         .container
           .row
             .col-md-9.col-lg-8.mx-auto
-              %h2.font-weight-bold.text-center.login-heading.mb-4 Welcome Log in
+              %h1.font-weight-bold.text-center.login-heading.mb-4 Welcome Log in
               = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
                 .form-label-group
                   .field
-                    = f.label :email, class: "control-label"
+                    = f.label :email, class: "control-label", style: "font-size: x-large; font-weight: bold;"
                     %br/
                     = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id:"inputEmail", placeholder: "Email Address"
                 .form-label-group
                   .field
-                    = f.label :password, class: "control-label"
+                    = f.label :password, class: "control-label", style: "font-size: x-large; font-weight: bold;"
                     %br/
-                    = f.password_field :password, autocomplete: "current-password", class: "form-control", id:"inputEmail", placeholder: "Password"
+                    = f.password_field :password, autocomplete: "current-password", class: "form-control", id:"inputPassword", placeholder: "Password"
                 - if devise_mapping.rememberable?
                   .text-center.custom-control.custom-checkbox.mb-3
                     .field
                       = f.check_box :remember_me, class: "custom-control-input"
-                      = f.label :remember_me, class: "custom-control-label"
+                      = f.label :remember_me, class: "custom-control-label", style: "font-size: large"
                 .actions
                   = f.submit "Log in", class: "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
               .text-center   

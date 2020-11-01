@@ -1,6 +1,6 @@
 
 
-.container-fluid.bg-image
+.container-fluid
   .row.no-gutter
     .col-md-2.col-lg-3
     .col-md-8.col-lg-6
@@ -8,25 +8,44 @@
         .container
           .row
             .col-md-9.col-lg-8.mx-auto
-              %h2.font-weight-bold.text-center.login-heading.mb-4 Welcome Sign Up
+              %h1.font-weight-bold.text-center.login-heading.mb-4 Welcome Sign Up
 
               = form_tag request_path do
                 .form-label-group
                   .field
-                    = label :name, 'Full Name:', class: "control-label"
+                    = label :name, 'Full Name:', class: "control-label", style: "font-size: large; font-weight: bold"
                     %br/
                     = text_field :request, :provider_id, autofocus: true, class: "form-control", placeholder: "Your Name"
                 .form-label-group
                   .field
-                    = label :email, 'Email:', class: "control-label"
+                    = label :email, 'Email:', class: "control-label", style: "font-size: large; font-weight: bold"
                     %br/
                     = text_field :request, :email, autofocus: true, class: "form-control", id:"inputEmail", placeholder: "Email Address"
                 .form-label-group
                   .field
-                    = label :password, 'Password:', class: "control-label", placeholder:"Minimum 6 characters"
+                    = label :password, 'Password:', class: "control-label", placeholder:"Minimum 6 characters", style: "font-size: large; font-weight: bold"
                     %br/
                     = password_field :request, :password, class: "form-control", placeholder: "Password"
+                .form-label-group
+                  .field
+                    = label :password, 'Re-enter password:', class: "control-label", placeholder:"Minimum 6 characters", style: "font-size: large; font-weight: bold"
                     %br/
+                    = password_field :request, :password_check, class: "form-control", placeholder: "Password"
+                .form-label-group
+                  .field
+                    = label :role, 'Role:', class: "control-label", placeholder:"Select Role", style: "font-size: large; font-weight: bold"
+                    %br/
+                    // = select_tag "request[role]", options_for_select({ "Patient" => "patient", "Provider" => "provider"}, "patient"), class: "form-control"
+                    .radio
+                      %label
+                        // %input{name: "request[role]", type: "radio", value: "patient", checked="checked"}
+                        %input{:name => "request[role]", :type => "radio", :value => "patient", :checked => "checked"}
+                        Patient    
+                    .radio
+                      %label
+                        %input{:name => "request[role]", :type => "radio", :value => "provider"}
+                        Provider
+                  
                 = submit_tag 'Submit', :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
                 %br/
                 = link_to 'Cancel',root_path  ,:class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
