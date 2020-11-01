@@ -46,7 +46,7 @@
           %td= question.mrn
           %td= question.age
           %td= link_to 'View Survey', question#showtouser
-          %td= link_to "Edit Feedback", dashboard_path(question)
+          %td= link_to "Edit Feedback", provider_edit_feedback_path(question)
           // %td= link_to 'Edit Response', edit_question_path(question)
           // %td= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' }
 
