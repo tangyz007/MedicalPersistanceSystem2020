@@ -44,7 +44,7 @@
           // %td= link_to 'Edit Response', edit_question_path(question)
           // %td= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' }
   %br/
-  // = link_to 'New Response', new_question_path
+  = link_to 'New Survey', new_question_path, :class => "sticky-top float-left btn btn-outline-primary"
 
   // - if current_user
   //   = link_to 'Logout', destroy_user_session_path, method: :delete , :class => "btn btn-outline-success",:id => "center"

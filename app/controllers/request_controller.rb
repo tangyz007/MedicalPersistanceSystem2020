@@ -23,7 +23,7 @@ class RequestController < ApplicationController
             render html: "<h1>Passwords must match. Please return to previous page to correct it. </h1>".html_safe
         else        
             @record = Request.create!(provider_id:request_params["provider_id"],email:request_params["email"],password:request_params["password"])
-            @users = User.create!(role:request_params["role"],email:request_params["email"],password:request_params["password"])
+            @users = User.create!(role:request_params["role"], full_name:request_params["provider_id"], email:request_params["email"],password:request_params["password"])
             redirect_to '/success'
         end
         

@@ -20,6 +20,10 @@ module NavigationHelpers
     when /^the submit success page$/ then '/success'
 
     when /^the sign up page$/ then '/request/user'
+      
+    when /^the patient panel page$/ then '/patient/index'
+      
+    when /^the take survey page$/ then '/questions/new'
 
     when /^the edit page for "([^"]+)"$/
       edit_movie_path(Movie.find_by_title($1).id)
