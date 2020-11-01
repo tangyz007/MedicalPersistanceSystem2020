@@ -12,8 +12,10 @@
       .form-group
         = f.label :name,'Please enter your full name:',:class => "font-weight-bold"
         %br/
+
         = f.hidden_field :patient_id, :value => current_user.id
         = f.text_field :name, :value => current_user.full_name, :class => "form-control",:required => true, :readonly => "readonly", :style=> "width:70% ;font-size: x-large"
+
   .row
     .col
       .form-group 

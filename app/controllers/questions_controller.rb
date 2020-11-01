@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  
+  before_action :authenticate_user!
   def login
     if current_user
       redirect_to questions_path
@@ -77,7 +77,7 @@ class QuestionsController < ApplicationController
   
   # POST /questions
   # POST /questions.json
-  before_action :authenticate_user!
+  
   def create
     @question = Question.new(question_params)
     
