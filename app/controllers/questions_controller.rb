@@ -63,6 +63,10 @@ class QuestionsController < ApplicationController
 
   # GET /questions/new
   def new
+    if current_user.role != "patient"
+      redirect_to '/login'
+    end
+    
     questionFile = File.read('config/questions.json')
     @questionsHash = JSON.parse(questionFile)
     @question = Question.new
