@@ -5,8 +5,8 @@ class ProviderController < ApplicationController
   end
   
   def update_feedback
-    puts params["feedback"]
-    puts params["questions_id"]
+    #puts params["feedback"]
+    #puts params["questions_id"]
     
     @questions = Question.find(params["questions_id"])
     @questions.update_attribute(:feedback, params["feedback"])
