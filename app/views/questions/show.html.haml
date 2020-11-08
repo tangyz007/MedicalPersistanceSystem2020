@@ -86,7 +86,7 @@
     = ("I have started medication for osteoporosis." if @question.question6==5)
   
   %br/
-  - if  user_signed_in?
+  - if current_user.role == "patient"
     = link_to 'Edit Response', edit_question_path(@question),:class => "float-center btn btn-secondary"
     = link_to ' Submit ',  '/patient/index' , :class => " btn btn-danger"
   - else
