@@ -23,7 +23,10 @@
             %h5{:class=>"card-title"} Provider Feedback
         .card-body
             %textarea{:class => "form-control", :rows => 10, :readonly => "readonly"}
-                = "=========Need to pull feedback from DB and show here========" 
+                - if @patient.feedback and !@patient.feedback.to_s.strip.empty?
+                    = @patient.feedback
+                - else
+                    = "The provider hasn't given feedback yet."
     %br
     .container-footer
         = link_to 'Back to List', '/login', :class => "dash btn btn-danger btn-lg"
