@@ -18,7 +18,8 @@ Rails.application.routes.draw do
   match "request/user" => "request#create", via: [:post]
   match "admin/request" => "admin#request", via: [:post]
   get '/success' => 'request#success'
-  get '/provider/edit_feedback' => 'provider#edit_feedback'
+  get '/provider/feedback' => 'provider#edit_feedback', :as => "edit_provider_feedback"
+  post '/provider/feedback' => 'provider#update_feedback', :as => "update_provider_feedback"
   # get '/success'=> 'provider#success'
   # post '/signup'=> 'provider#signup'
   

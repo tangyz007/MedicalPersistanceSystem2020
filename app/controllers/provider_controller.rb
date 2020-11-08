@@ -4,6 +4,17 @@ class ProviderController < ApplicationController
     @questions = Question.where(user_id: current_user.id)
   end
   
+  def update_feedback
+    puts params["feedback"]
+    puts params["questions_id"]
+    
+    @questions = Question.find(params["questions_id"])
+    @questions.update_attribute(:feedback, params["feedback"])
+    flash[:notice] = "Feedback was successfully updated."
+    
+    redirect_to "/provider/index"
+  end
+  
   def edit_feedback
     # Load JSON file with counselling points
     counsellingPointsFile = File.read('config/counsel_points.json')
@@ -41,5 +52,7 @@ class ProviderController < ApplicationController
                     @patient.question55 + @patient.question56) / 6
     # opinion_score = opinion_total / 6
     @User_trust = trust_score > 3.17 ? "+" : "-"
+    
+    @feedback = @patient.feedback
   end
 end
