@@ -22,11 +22,8 @@
         .card-header
             %h5{:class=>"card-title"} Provider Feedback
         .card-body
-            %textarea{:class => "form-control", :rows => 10, :readonly => "readonly"}
-                - if @patient.feedback and !@patient.feedback.to_s.strip.empty?
-                    = @patient.feedback
-                - else
-                    = "The provider hasn't given feedback yet."
+            %textarea{:class => "form-control", :rows => 10, :readonly => "readonly", :placeholder => "The provider hasn't given the feedback yet."}
+                = @patient.feedback
     %br
     .container-footer
         = link_to 'Back to List', '/login', :class => "dash btn btn-danger btn-lg"
