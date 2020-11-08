@@ -23,9 +23,12 @@
         %br/
         //= f.text_field :user_id, :class => "form-control",:required => true
    
-        = f.select(:user_id, [],{include_blank: "Select something"} ,{class: 'form form-group form-control', style:"width:70% ;font-size: x-large" }) do 
+        = f.select(:user_id, [],{include_blank: "Select something"} ,{class: 'form form-group form-control', style:"width:70% ;font-size: x-large"}) do 
           - @providerList.each do |l|
-            = content_tag(:option, l.full_name, value: l.id, :required => true )
+            - if l.id.to_s == @question.user_id
+              = content_tag(:option, l.full_name, value: l.id, :selected => "selected" )
+            - else
+              = content_tag(:option, l.full_name, value: l.id)
 
   %br/ 
   .row
