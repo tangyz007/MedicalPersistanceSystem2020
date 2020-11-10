@@ -23,6 +23,8 @@ module NavigationHelpers
       
     when /^the patient panel page$/ then '/patient/index'
       
+    when /^the provider panel page$/ then '/provider/index'
+      
     when /^the take survey page$/ then '/questions/new'
 
     when /^the edit page for "([^"]+)"$/
