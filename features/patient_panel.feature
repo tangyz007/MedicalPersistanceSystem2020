@@ -14,9 +14,9 @@ Background: user accounts and surveys have been added to database
     | patient  | test2@patient.com       | test123  | test_patient_2|
   
   Given the following questions exist:
-    |   name       |    mrn     | age | question2 | question3 | question4 | question51 | question52 | question53 | question54 | question55 | question56 | question6 | user_id | patient_id |
-    | test_patient | MRNtest123 |  32 |         2 |         2 | t         |          2 |          2 |          1 |          1 |          3 |          3 |         3 | 2       |            |          
-    | test_patient | MRNtest321 |  67 |         2 |         2 | t         |          2 |          2 |          3 |          1 |          2 |          1 |         1 | 2       |            |
+    |   name       |    mrn     | age | question2 | question3 | question4 | question51 | question52 | question53 | question54 | question55 | question56 | question6 | provider_name | patient_id |
+    | test_patient | MRNtest123 |  32 |         2 |         2 | t         |          2 |          2 |          1 |          1 |          3 |          3 |         3 | test provider |            |          
+    | test_patient | MRNtest321 |  67 |         2 |         2 | t         |          2 |          2 |          3 |          1 |          2 |          1 |         1 | test provider |            |
   
   
  Scenario: Log in and go to the patient panel page
