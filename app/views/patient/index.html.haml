@@ -30,7 +30,7 @@
         %th Name
         %th MRN
         %th Age
-        %th Patient DashBoard
+        %th Provider Feedback
     %tbody
       - @questions.each do |question|
         %tr
@@ -39,7 +39,7 @@
           %td= question.age
           //Remove as requested by the customer
           // %td= link_to 'Show Response', question#showtouser
-          %td= link_to "Show Dashboard", dashboard_path(question)
+          %td= link_to "View Feedback", dashboard_path(question)
           // %td= link_to 'Edit Response', edit_question_path(question)
           // %td= link_to 'Delete', question, method: :delete, data: { confirm: 'Are you sure?' }
   %br/
